@@ -20,11 +20,11 @@ def add_features(df):
     'Anonymous': df['GeoIp2'].apply(lambda x: x.traits.is_anonymous), \
     'AnonymousVpn': df['GeoIp2'].apply(lambda x: x.traits.is_anonymous_vpn), \
     'HostingProvider': df['GeoIp2'].apply(lambda x: x.traits.is_hosting_provider), \
-    'TorExitNode': df['GeoIp2'].apply(lambda x: x.traits.is_tor_exit_node)
+    'TorExitNode': df['GeoIp2'].apply(lambda x: x.traits.is_tor_exit_node) \
     }
     count = 1
     for key in features:
-        df.insert(loc = count, column = key, value = features[key])
+        df.insert(loc=count, column=key, value=features[key])
         count += 1
     return None
 
@@ -51,6 +51,7 @@ def main(ips):
     result = pd.DataFrame(data=ips, index=None, columns=['IpAddress'])
     result['GeoIp2'] = result['IpAddress'].apply(lambda x: client.insights(x))
     add_features(result) # Make selected MaxMind response attributes features.
+    #result.to_csv('maxmind-geoip2-output.csv', index=False) # Save output to CSV.
     return result
 
 if __name__ == '__main__':
