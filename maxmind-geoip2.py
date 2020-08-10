@@ -13,14 +13,14 @@ def add_features(df):
 
         Returns: None
     '''
-    features = { \
-    'Country': df['GeoIp2'].apply(lambda x: x.registered_country.name), \
-    'Subdivision': df['GeoIp2'].apply(lambda x: x.subdivisions.most_specific.name), \
-    'Isp': df['GeoIp2'].apply(lambda x: x.traits.isp), \
-    'Anonymous': df['GeoIp2'].apply(lambda x: x.traits.is_anonymous), \
-    'AnonymousVpn': df['GeoIp2'].apply(lambda x: x.traits.is_anonymous_vpn), \
-    'HostingProvider': df['GeoIp2'].apply(lambda x: x.traits.is_hosting_provider), \
-    'TorExitNode': df['GeoIp2'].apply(lambda x: x.traits.is_tor_exit_node) \
+    features = {
+        'Country': df['GeoIp2'].apply(lambda x: x.registered_country.name),
+        'Subdivision': df['GeoIp2'].apply(lambda x: x.subdivisions.most_specific.name),
+        'Isp': df['GeoIp2'].apply(lambda x: x.traits.isp),
+        'Anonymous': df['GeoIp2'].apply(lambda x: x.traits.is_anonymous),
+        'AnonymousVpn': df['GeoIp2'].apply(lambda x: x.traits.is_anonymous_vpn),
+        'HostingProvider': df['GeoIp2'].apply(lambda x: x.traits.is_hosting_provider),
+        'TorExitNode': df['GeoIp2'].apply(lambda x: x.traits.is_tor_exit_node)
     }
     count = 1
     for key in features:
@@ -45,9 +45,9 @@ def main(ips):
     with open('config.json') as f:
         api_config = json.load(f)
     f.close()
-    userid = api_config['userid']
-    apikey = api_config['apikey']
-    client = geoip2.webservice.Client(userid, apikey)
+    user_id = api_config['userid']
+    api_key = api_config['apikey']
+    client = geoip2.webservice.Client(user_id, api_key)
     result = pd.DataFrame(data=ips, index=None, columns=['IpAddress'])
     result['GeoIp2'] = result['IpAddress'].apply(lambda x: client.insights(x))
     add_features(result) # Make selected MaxMind response attributes features.
