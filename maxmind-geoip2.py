@@ -45,8 +45,8 @@ def main(ips):
     with open('config.json') as f:
         api_config = json.load(f)
     f.close()
-    user_id = api_config['userid']
-    api_key = api_config['apikey']
+    user_id = api_config['maxmind']['userid']
+    api_key = api_config['maxmind']['apikey']
     client = geoip2.webservice.Client(user_id, api_key)
     result = pd.DataFrame(data=ips, index=None, columns=['IpAddress'])
     result['GeoIp2'] = result['IpAddress'].apply(lambda x: client.insights(x))
