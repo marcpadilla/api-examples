@@ -1,6 +1,6 @@
 {
     "maxmind": {
         "userid": 123456789,
-        "apikey": "nice"
+        "apikey": "ExampleKey"
     }
 }
