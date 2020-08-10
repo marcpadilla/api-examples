@@ -7,7 +7,7 @@ Quick examples of using Python 3 for accessing different APIs. Data are stored i
 Servies to be added:
 
 - **Have I Been Pwned** (HIBP) API v3 [https://haveibeenpwned.com/API/v3](https://haveibeenpwned.com/API/v3)
-- **SANS Internet Storm Center / DShield API** [https://isc.sans.edu/api/](https://isc.sans.edu/api/)
+- **SANS Internet Storm Center / DShield** API [https://isc.sans.edu/api/](https://isc.sans.edu/api/)
 - **Shodan** [https://github.com/achillean/shodan-python](https://github.com/achillean/shodan-python)
 
 ## Authentication
