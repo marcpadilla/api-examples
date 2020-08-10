@@ -1,4 +1,10 @@
 # API Examples
 Quick examples of using Python 3 for accessing different APIs. Examples include the use of pandas. Current services include:
 
-1. MaxMind GeoIP2 [https://geoip2.readthedocs.io/en/latest/](https://geoip2.readthedocs.io/en/latest/)
+- MaxMind GeoIP2 Precision Services [https://www.maxmind.com/en/geoip2-precision-services](https://www.maxmind.com/en/geoip2-precision-services)
+- Have I Been Pwned (HIBP) API v3 [https://haveibeenpwned.com/API/v3](https://haveibeenpwned.com/API/v3)
+- Shodan
+
+## API UserIDs, Keys, etc.
+
+All authentication information for the services is stored in the `config.json` file.
