@@ -1,6 +1,9 @@
 {
+    "hibp": {
+        "apikey": "replace_me"
+    },
     "maxmind": {
-        "userid": 123456789,
-        "apikey": "ExampleKey"
+        "userid": 1234567890,
+        "apikey": "replace_me"
     }
 }
